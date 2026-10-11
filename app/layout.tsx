@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "مدرسة البلوت | Baloot Academy",
   description: "تعلم الفرق بين الصن والحكم باللعب والتدريب التفاعلي.",
   applicationName: "مدرسة البلوت",
+  other: { "codex-preview": "development" },
   manifest: "/site.webmanifest",
   appleWebApp: { capable: true, statusBarStyle: "black-translucent", title: "مدرسة البلوت" },
   formatDetection: { telephone: false },
