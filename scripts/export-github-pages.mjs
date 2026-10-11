@@ -1,4 +1,4 @@
-import { mkdir, writeFile } from "node:fs/promises";
+import { cp, mkdir, readdir, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { pathToFileURL } from "node:url";
 
@@ -30,4 +30,10 @@ await mkdir(resolve(root, "dist/client"), { recursive: true });
 await writeFile(resolve(root, "dist/client/index.html"), html);
 await writeFile(resolve(root, "dist/client/.nojekyll"), "");
 
-console.log(`Exported ${html.length} bytes to dist/client/index.html for ${basePath}`);
+// Keep the repository-root Pages source usable as well as the Actions artifact.
+for (const entry of await readdir(resolve(root, "dist/client"), { withFileTypes: true })) {
+  if (entry.name === ".vite" || entry.name === ".assetsignore") continue;
+  await cp(resolve(root, "dist/client", entry.name), resolve(root, entry.name), { recursive: true, force: true });
+}
+
+console.log(`Exported ${html.length} bytes to dist/client/index.html and the repository root for ${basePath}`);
