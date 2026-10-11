@@ -12,7 +12,7 @@ export default function PWARegister() {
 
   useEffect(() => {
     if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("/sw.js").catch(() => undefined);
+      navigator.serviceWorker.register("./sw.js", { scope: "./" }).catch(() => undefined);
     }
     const ready = (event: Event) => {
       event.preventDefault();

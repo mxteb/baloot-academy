@@ -1,5 +1,6 @@
-const CACHE = "baloot-academy-v1";
-const APP_SHELL = ["/", "/site.webmanifest", "/pwa-192.png", "/pwa-512.png", "/apple-touch-icon.png"];
+const CACHE = "baloot-academy-v2";
+const asset = (path) => new URL(path, self.registration.scope).pathname;
+const APP_SHELL = ["./", "site.webmanifest", "pwa-192.png", "pwa-512.png", "apple-touch-icon.png"].map(asset);
 
 self.addEventListener("install", (event) => {
   event.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(APP_SHELL)));
@@ -17,7 +18,7 @@ self.addEventListener("fetch", (event) => {
   const request = event.request;
   if (request.method !== "GET") return;
   const url = new URL(request.url);
-  if (url.origin !== self.location.origin || url.pathname.startsWith("/api/")) return;
+  if (url.origin !== self.location.origin || url.pathname.startsWith(new URL("api/", self.registration.scope).pathname)) return;
 
   event.respondWith(
     fetch(request)

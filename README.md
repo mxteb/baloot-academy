@@ -2,7 +2,7 @@
 
 تطبيق ويب تعليمي عربي لتعلّم البلوت السعودي باللعب، مع تركيز خاص على الفرق بين **الصن** و**الحكم** والمشي الصحيح.
 
-**النسخة المباشرة:** [baloot-academy.slmdnk.chatgpt.site](https://baloot-academy.slmdnk.chatgpt.site)
+**اللعبة:** [mxteb.github.io/baloot-academy](https://mxteb.github.io/baloot-academy/)
 
 ## المزايا
 
