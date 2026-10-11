@@ -1,4 +1,4 @@
-const CACHE = "baloot-academy-v2";
+const CACHE = "baloot-academy-v3";
 const asset = (path) => new URL(path, self.registration.scope).pathname;
 const APP_SHELL = ["./", "site.webmanifest", "pwa-192.png", "pwa-512.png", "apple-touch-icon.png"].map(asset);
 
